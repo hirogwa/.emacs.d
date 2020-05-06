@@ -50,13 +50,6 @@
 (define-key org-mode-map (kbd "<S-left>") nil)
 (define-key org-mode-map (kbd "<S-right>") nil)
 
-;;;; auto-complete
-(require 'auto-complete)
-(ac-config-default)
-(add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
-(add-to-list 'ac-modes 'js2-jsx-mode)
-(global-auto-complete-mode t)
-
 ;;;; coding general
 ;;; whitespaces
 (setq whitespace-line-column -1)
