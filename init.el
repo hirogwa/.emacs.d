@@ -19,16 +19,11 @@
 (tool-bar-mode 0)
 (global-set-key (kbd "s-r") 'revert-buffer)
 (set-face-attribute 'default nil :height 100)
-
-;;;; theme
-;; https://github.com/emacs-jp/replace-colorthemes/blob/master/dark-laptop-theme.el
-(load-file "~/.emacs.d/dark-laptop-theme.el")
-
-;;;; line/column number
 (global-linum-mode t)
 (column-number-mode t)
-
-;;;; windows
+;; theme. https://github.com/emacs-jp/replace-colorthemes/blob/master/dark-laptop-theme.el
+(load-file "~/.emacs.d/dark-laptop-theme.el")
+;; split vertically the window at startup
 (split-window-right)
 ;;; moving around windows
 (global-set-key (kbd "<C-S-left>")   'buf-move-left)
