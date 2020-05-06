@@ -23,10 +23,10 @@
 (column-number-mode t)
 ;; theme. https://github.com/emacs-jp/replace-colorthemes/blob/master/dark-laptop-theme.el
 (load-file "~/.emacs.d/dark-laptop-theme.el")
-;; split vertically the window at startup
-(split-window-right)
 
-;;; moving around windows
+;;; window management
+(split-window-right)                ; split vertically the window at startup
+(setq split-height-threshold 100)   ; and prevent commands from splitting further
 (require 'buffer-move)
 (global-set-key (kbd "<C-S-left>")   'buf-move-left)
 (global-set-key (kbd "<C-S-right>")  'buf-move-right)
@@ -38,6 +38,7 @@
 ;;; git
 (require 'magit)
 (global-set-key (kbd "C-x m") 'magit-status)
+(define-key magit-mode-map (kbd "RET") 'magit-diff-visit-file-other-window)
 
 ;;; org mode - override org-mode default to favor general window switching
 (require 'org)
