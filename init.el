@@ -66,9 +66,6 @@
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
 
-;;;; JavaScript
-(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-jsx-mode))
-
 ;;; Python
 (require 'python)
 (define-key python-mode-map (kbd "C-x p") 'insert-pdb-set-trace)
@@ -89,5 +86,4 @@
 ;; show error/warning message at tooltip
 ;; uses flycheck-pos-tip.el
 (with-eval-after-load 'flycheck
-  (flycheck-add-mode 'javascript-eslint 'js2-jsx-mode)
   (flycheck-pos-tip-mode))
