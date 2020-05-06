@@ -25,11 +25,14 @@
 (load-file "~/.emacs.d/dark-laptop-theme.el")
 ;; split vertically the window at startup
 (split-window-right)
+
 ;;; moving around windows
 (global-set-key (kbd "<C-S-left>")   'buf-move-left)
 (global-set-key (kbd "<C-S-right>")  'buf-move-right)
+(global-set-key (kbd "<C-S-up>")  'buf-move-up)
+(global-set-key (kbd "<C-S-down>")  'buf-move-down)
 (setq buffer-move-behavior 'move)
-(windmove-default-keybindings)
+(windmove-default-keybindings)    ; move to other window by S-right etc.
 
 ;;;; git
 (require 'magit)
