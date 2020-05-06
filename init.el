@@ -11,7 +11,6 @@
 (global-set-key "\C-h" 'delete-backward-char)
 
 ;;;; general stuff
-(global-set-key (kbd "C-m") 'smart-newline)
 (show-paren-mode 1)
 (global-hl-line-mode 1)
 (ido-mode t)
