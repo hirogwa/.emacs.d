@@ -67,10 +67,6 @@
   (interactive)
   (insert "import pdb; pdb.set_trace()"))
 
-;;;; markdown
-(custom-set-variables
- '(markdown-command "/usr/local/bin/pandoc"))
-
 ;;;; flycheck
 (global-flycheck-mode)
 (global-set-key (kbd "s-n") 'flycheck-next-error)
