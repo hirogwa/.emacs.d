@@ -60,7 +60,7 @@
 ;;;; coding general
 ;;; whitespaces
 (setq whitespace-line-column -1)
-(setq whitespace-style (quote (face trailing tabs lines)))
+(setq whitespace-style `(face trailing tabs lines newline))
 (global-whitespace-mode 1)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 (setq-default indent-tabs-mode nil)
