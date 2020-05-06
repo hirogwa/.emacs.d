@@ -9,17 +9,16 @@
 (global-set-key "\C-x\C-b" 'buffer-menu)
 ;; backspace instead of help
 (global-set-key "\C-h" 'delete-backward-char)
-
-;;;; general stuff
+;; visualize matching brackets
 (show-paren-mode 1)
+;; highlight current line
 (global-hl-line-mode 1)
 (ido-mode t)
 (setq inhibit-splash-screen t)
-(menu-bar-mode -1)
-(tool-bar-mode -1)
-(display-time)
+(menu-bar-mode 0)
+(tool-bar-mode 0)
 (global-set-key (kbd "s-r") 'revert-buffer)
-(set-face-attribute 'default nil :height 100) ; font size
+(set-face-attribute 'default nil :height 100)
 
 ;;;; theme
 ;; https://github.com/emacs-jp/replace-colorthemes/blob/master/dark-laptop-theme.el
