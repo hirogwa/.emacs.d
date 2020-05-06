@@ -7,9 +7,10 @@
 
 ;; open buffer in the same window
 (global-set-key "\C-x\C-b" 'buffer-menu)
+;; backspace instead of help
+(global-set-key "\C-h" 'delete-backward-char)
 
 ;;;; general stuff
-(keyboard-translate ?\C-h ?\C-?)             ; C-h for backspace
 (global-set-key (kbd "C-m") 'smart-newline)
 (show-paren-mode 1)
 (global-hl-line-mode 1)
