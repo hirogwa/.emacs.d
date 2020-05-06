@@ -38,11 +38,13 @@
 (require 'magit)
 (global-set-key (kbd "C-x m") 'magit-status)
 
-;;;; org mode
-;;; override org-mode default to favor general window switching
+;;; org mode
+;; override org-mode default to favor general window switching
 (require 'org)
 (define-key org-mode-map (kbd "<C-S-left>") nil)
 (define-key org-mode-map (kbd "<C-S-right>") nil)
+(define-key org-mode-map (kbd "<C-S-up>") nil)
+(define-key org-mode-map (kbd "<C-S-down>") nil)
 (define-key org-mode-map (kbd "<S-up>") nil)
 (define-key org-mode-map (kbd "<S-down>") nil)
 (define-key org-mode-map (kbd "<S-left>") nil)
