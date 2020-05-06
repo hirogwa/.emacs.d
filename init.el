@@ -34,6 +34,9 @@
 (global-set-key (kbd "<C-S-down>")  'buf-move-down)
 (setq buffer-move-behavior 'move)
 (windmove-default-keybindings)    ; move to other window by S-right etc.
+(winner-mode)
+(global-set-key (kbd "C-c p") 'winner-undo)
+(global-set-key (kbd "C-c n") 'winner-redo)
 
 ;;; git
 (require 'magit)
