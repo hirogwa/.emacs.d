@@ -27,6 +27,7 @@
 (split-window-right)
 
 ;;; moving around windows
+(require 'buffer-move)
 (global-set-key (kbd "<C-S-left>")   'buf-move-left)
 (global-set-key (kbd "<C-S-right>")  'buf-move-right)
 (global-set-key (kbd "<C-S-up>")  'buf-move-up)
@@ -52,6 +53,7 @@
 
 ;;;; coding general
 ;;; whitespaces
+(require 'whitespace)
 (setq whitespace-line-column -1)
 (setq whitespace-style `(face trailing tabs lines newline))
 (global-whitespace-mode 1)
@@ -72,7 +74,5 @@
 (global-set-key (kbd "s-n") 'flycheck-next-error)
 (global-set-key (kbd "s-p") 'flycheck-previous-error)
 (global-set-key (kbd "s-l") 'flycheck-list-errors)
-;; show error/warning message at tooltip
-;; uses flycheck-pos-tip.el
 (with-eval-after-load 'flycheck
-  (flycheck-pos-tip-mode))
+  (flycheck-pos-tip-mode))    ; show error/warning message at tooltip
