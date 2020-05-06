@@ -67,11 +67,11 @@
 ;;;; JavaScript
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-jsx-mode))
 
-;;;; Python
+;;; Python
 (require 'python)
 (define-key python-mode-map (kbd "C-x p") 'insert-pdb-set-trace)
 (defun insert-pdb-set-trace ()
-  "Insert pdb"
+  "Insert pdb."
   (interactive)
   (insert "import pdb; pdb.set_trace()"))
 
