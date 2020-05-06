@@ -5,6 +5,9 @@
 
 (exec-path-from-shell-initialize)
 
+;; open buffer in the same window
+(global-set-key "\C-x\C-b" 'buffer-menu)
+
 ;;;; general stuff
 (keyboard-translate ?\C-h ?\C-?)             ; C-h for backspace
 (global-set-key (kbd "C-m") 'smart-newline)
