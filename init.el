@@ -1,4 +1,4 @@
-;;;; packages
+;;; packages
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
 (package-initialize)
@@ -35,12 +35,11 @@
 (setq buffer-move-behavior 'move)
 (windmove-default-keybindings)    ; move to other window by S-right etc.
 
-;;;; git
+;;; git
 (require 'magit)
 (global-set-key (kbd "C-x m") 'magit-status)
 
-;;; org mode
-;; override org-mode default to favor general window switching
+;;; org mode - override org-mode default to favor general window switching
 (require 'org)
 (define-key org-mode-map (kbd "<C-S-left>") nil)
 (define-key org-mode-map (kbd "<C-S-right>") nil)
@@ -51,7 +50,6 @@
 (define-key org-mode-map (kbd "<S-left>") nil)
 (define-key org-mode-map (kbd "<S-right>") nil)
 
-;;;; coding general
 ;;; whitespaces
 (require 'whitespace)
 (setq whitespace-line-column -1)
@@ -69,7 +67,7 @@
   (interactive)
   (insert "import pdb; pdb.set_trace()"))
 
-;;;; flycheck
+;;; flycheck
 (global-flycheck-mode)
 (global-set-key (kbd "s-n") 'flycheck-next-error)
 (global-set-key (kbd "s-p") 'flycheck-previous-error)
