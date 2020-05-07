@@ -92,6 +92,11 @@
   :config
   (flycheck-pos-tip-mode))  ; show error/warning message at tooltip
 
+(use-package company
+  :config
+  (add-hook 'after-init-hook 'global-company-mode)
+  (define-key company-mode-map (kbd "C-c SPC") 'company-complete))
+
 (use-package color-theme-sanityinc-tomorrow
   :config
   (load-theme 'sanityinc-tomorrow-night t))
