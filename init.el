@@ -27,8 +27,6 @@
 (set-face-attribute 'default nil :height 100)
 (global-linum-mode t)
 (column-number-mode t)
-;; theme. https://github.com/emacs-jp/replace-colorthemes/blob/master/dark-laptop-theme.el
-(load-file "~/.emacs.d/dark-laptop-theme.el")
 
 ;;; window navigation
 (split-window-right)                ; split vertically the window at startup
@@ -93,3 +91,7 @@
   :after (flycheck)
   :config
   (flycheck-pos-tip-mode))  ; show error/warning message at tooltip
+
+(use-package color-theme-sanityinc-tomorrow
+  :config
+  (load-theme 'sanityinc-tomorrow-night t))
