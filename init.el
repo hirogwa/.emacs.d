@@ -42,6 +42,7 @@
   (global-set-key (kbd "<C-S-down>")  'buf-move-down)
   (setq buffer-move-behavior 'move))
 
+(savehist-mode 1)
 (use-package ivy
   :config
   (ivy-mode 1))
