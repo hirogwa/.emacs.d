@@ -43,7 +43,7 @@
 ;;; git
 (require 'magit)
 (global-set-key (kbd "C-x m") 'magit-status)
-(define-key magit-mode-map (kbd "RET") 'magit-diff-visit-file-other-window)
+(define-key magit-hunk-section-map (kbd "RET") 'magit-diff-visit-file-other-window)
 
 ;;; org mode - override org-mode default to favor general window switching
 (require 'org)
