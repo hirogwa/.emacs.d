@@ -1,4 +1,6 @@
 ;;; packages
+(setq custom-file "~/.emacs.d/custom.el")  ; I have no intention of using it for now
+
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
 (package-initialize)
