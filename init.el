@@ -29,7 +29,7 @@
 
 ;;; window navigation
 (split-window-right)                ; split vertically the window at startup
-(setq split-height-threshold 100)   ; and prevent commands from splitting further
+(setq split-height-threshold 500)   ; and prevent commands from splitting further
 (windmove-default-keybindings)      ; move to other window by S-right etc.
 (winner-mode)
 (global-set-key (kbd "C-c p") 'winner-undo)
