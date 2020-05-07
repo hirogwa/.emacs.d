@@ -19,7 +19,6 @@
 (show-paren-mode 1)
 ;; highlight current line
 (global-hl-line-mode 1)
-(ido-mode t)
 (setq inhibit-splash-screen t)
 (menu-bar-mode 0)
 (tool-bar-mode 0)
@@ -42,6 +41,14 @@
   (global-set-key (kbd "<C-S-up>")  'buf-move-up)
   (global-set-key (kbd "<C-S-down>")  'buf-move-down)
   (setq buffer-move-behavior 'move))
+
+(use-package ivy
+  :config
+  (ivy-mode 1))
+(use-package swiper
+  :config
+  (global-set-key (kbd "C-s") 'swiper)
+  (global-set-key (kbd "C-r") 'swiper-backward))
 
 ;;; git
 (use-package magit
