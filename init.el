@@ -104,6 +104,16 @@
   (add-hook 'after-init-hook 'global-company-mode)
   (define-key company-mode-map (kbd "C-c SPC") 'company-complete))
 
+(use-package lsp-mode
+  :hook ((python-mode . lsp))
+  :commands lsp
+  :config
+  (define-key lsp-mode-map (kbd "C-c SPC") 'completion-at-point))
+
+(use-package lsp-ui :commands lsp-ui-mode)
+(use-package lsp-ivy :commands lsp-ivy-workspace-symbol)
+(use-package lsp-treemacs :commands lsp-treemacs-errors-list)
+
 (use-package color-theme-sanityinc-tomorrow
   :config
   (load-theme 'sanityinc-tomorrow-night t))
