@@ -45,6 +45,7 @@
   "Position frame to the left half of the screen."
   (interactive)
   (position-frame-half-screen 0))
+(position-frame-right)
 (global-set-key (kbd "<C-M-right>") 'position-frame-right)
 (global-set-key (kbd "<C-M-left>") 'position-frame-left)
 
