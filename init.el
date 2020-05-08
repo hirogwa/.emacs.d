@@ -138,4 +138,12 @@
 
 (use-package color-theme-sanityinc-tomorrow
   :config
-  (load-theme 'sanityinc-tomorrow-night t))
+  (load-theme 'sanityinc-tomorrow-bright t)
+  (defun theme-dark ()
+    "Switch to my selected dark theme."
+    (interactive)
+    (load-theme 'sanityinc-tomorrow-bright t))
+  (defun theme-light ()
+    "Switch to my selected light theme."
+    (interactive)
+    (load-theme 'sanityinc-tomorrow-day t)))
