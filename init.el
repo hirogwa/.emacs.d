@@ -27,6 +27,27 @@
 (global-linum-mode t)
 (column-number-mode t)
 
+;; let the frame occupy the right half of the screen
+(defun position-frame (position-x position-y width height)
+  "Set frame of size WIDTH and HEIGHT at position (POSITION-X, POSITION-Y)."
+  (set-frame-position (selected-frame) position-x position-y)
+  (set-frame-size (selected-frame) width height t))
+(defun position-frame-half-screen (position-x)
+  "Resize the frame to half width of the screen and position at POSITION-X."
+  (let ((width (floor (/ (display-pixel-width) 2)))
+        (height (display-pixel-height)))
+    (position-frame position-x 0 width height)))
+(defun position-frame-right ()
+  "Position frame to the right half of the screen."
+  (interactive)
+  (position-frame-half-screen (/ (display-pixel-width) 2)))
+(defun position-frame-left ()
+  "Position frame to the left half of the screen."
+  (interactive)
+  (position-frame-half-screen 0))
+(global-set-key (kbd "<C-M-right>") 'position-frame-right)
+(global-set-key (kbd "<C-M-left>") 'position-frame-left)
+
 ;;; window navigation
 (split-window-right)                ; split vertically the window at startup
 (setq split-height-threshold 500)   ; and prevent commands from splitting further
