@@ -97,8 +97,7 @@
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 (use-package whitespace
   :config
-  (setq whitespace-line-column -1)
-  (setq whitespace-style `(face trailing tabs lines newline))
+  (setq whitespace-style `(face trailing tabs))
   (global-whitespace-mode 1))
 
 ;;; Python
