@@ -40,7 +40,7 @@
 (defun position-frame-right ()
   "Position frame to the right half of the screen."
   (interactive)
-  (position-frame-half-screen (/ (display-pixel-width) 2)))
+  (position-frame-half-screen (- (/ (display-pixel-width) 2) 30)))
 (defun position-frame-left ()
   "Position frame to the left half of the screen."
   (interactive)
