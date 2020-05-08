@@ -107,7 +107,8 @@
   (insert "import pdb; pdb.set_trace()"))
 (use-package python
   :config
-  (define-key python-mode-map (kbd "C-x p") 'insert-pdb-set-trace))
+  (define-key python-mode-map (kbd "C-x p") 'insert-pdb-set-trace)
+  (add-hook 'python-mode-hook (lambda () (flycheck-add-next-checker 'lsp 'python-flake8))))
 
 ;;; flycheck
 (use-package flycheck
