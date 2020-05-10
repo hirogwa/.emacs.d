@@ -34,13 +34,13 @@
   (set-frame-size (selected-frame) width height t))
 (defun position-frame-half-screen (position-x)
   "Resize the frame to half width of the screen and position at POSITION-X."
-  (let ((width (floor (/ (display-pixel-width) 2)))
+  (let ((width (- (floor (/ (display-pixel-width) 2)) 33))
         (height (display-pixel-height)))
     (position-frame position-x 0 width height)))
 (defun position-frame-right ()
   "Position frame to the right half of the screen."
   (interactive)
-  (position-frame-half-screen (- (/ (display-pixel-width) 2) 30)))
+  (position-frame-half-screen (/ (display-pixel-width) 2)))
 (defun position-frame-left ()
   "Position frame to the left half of the screen."
   (interactive)
