@@ -67,7 +67,9 @@
 (savehist-mode 1)
 (use-package ivy
   :config
-  (ivy-mode 1))
+  (ivy-mode 1)
+  (setq ivy-magic-tilde nil)
+  (setq ivy-use-virtual-buffers t))
 (use-package swiper
   :config
   (global-set-key (kbd "C-s") 'swiper)
