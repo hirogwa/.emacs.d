@@ -112,6 +112,12 @@
   (define-key python-mode-map (kbd "C-x p") 'insert-pdb-set-trace)
   (add-hook 'python-mode-hook (lambda () (flycheck-add-next-checker 'lsp 'python-flake8))))
 
+;;; TypeScript
+(use-package typescript-mode
+  :config
+  (add-to-list 'auto-mode-alist '("\\.tsx?\\'" . typescript-mode))
+  (add-hook 'typescript-mode-hook (lambda () (flycheck-add-next-checker 'lsp 'javascript-eslint))))
+
 ;;; flycheck
 (use-package flycheck
   :config
@@ -127,10 +133,15 @@
 (use-package company
   :config
   (add-hook 'after-init-hook 'global-company-mode)
-  (define-key company-mode-map (kbd "C-c SPC") 'company-complete))
+  (define-key company-mode-map (kbd "C-c SPC") 'company-complete)
+  (define-key company-active-map (kbd "C-n") 'company-select-next-or-abort)
+  (define-key company-active-map (kbd "C-p") 'company-select-previous-or-abort)
+  (define-key company-active-map (kbd "M-h") 'company-show-doc-buffer)
+  (define-key company-active-map (kbd "C-h") nil))
 
 (use-package lsp-mode
-  :hook ((python-mode . lsp))
+  :hook ((python-mode . lsp)
+         (typescript-mode . lsp))
   :commands lsp
   :config
   (define-key lsp-mode-map (kbd "C-c SPC") 'completion-at-point))
