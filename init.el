@@ -109,8 +109,7 @@
   (insert "import pdb; pdb.set_trace()"))
 (use-package python
   :config
-  (define-key python-mode-map (kbd "C-x p") 'insert-pdb-set-trace)
-  (add-hook 'python-mode-hook (lambda () (flycheck-add-next-checker 'lsp 'python-flake8))))
+  (define-key python-mode-map (kbd "C-x p") 'insert-pdb-set-trace))
 
 ;;; TypeScript
 (use-package typescript-mode
@@ -140,8 +139,7 @@
   (define-key company-active-map (kbd "C-h") nil))
 
 (use-package lsp-mode
-  :hook ((python-mode . lsp)
-         (typescript-mode . lsp))
+  :hook ((typescript-mode . lsp))
   :commands lsp
   :config
   (define-key lsp-mode-map (kbd "C-c SPC") 'completion-at-point))
