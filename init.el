@@ -112,6 +112,9 @@
   (define-key python-mode-map (kbd "C-x p") 'insert-pdb-set-trace))
 
 ;;; TypeScript
+(use-package prettier-js
+  :config
+  (add-hook 'typescript-mode-hook 'prettier-js-mode))
 (use-package typescript-mode
   :config
   (add-to-list 'auto-mode-alist '("\\.tsx?\\'" . typescript-mode))
