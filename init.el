@@ -151,6 +151,13 @@
 (use-package lsp-ivy :commands lsp-ivy-workspace-symbol)
 (use-package lsp-treemacs :commands lsp-treemacs-errors-list)
 
+;;; treemacs
+(use-package treemacs
+  :config
+  (global-set-key (kbd "C-x t") 'treemacs)
+  (treemacs))
+
+;;; theme
 (use-package color-theme-sanityinc-tomorrow
   :config
   (load-theme 'sanityinc-tomorrow-bright t)
