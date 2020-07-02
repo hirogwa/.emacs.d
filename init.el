@@ -155,6 +155,7 @@
 (use-package treemacs
   :config
   (global-set-key (kbd "C-x t") 'treemacs)
+  (global-set-key (kbd "C-c t") 'treemacs)
   (treemacs))
 
 ;;; theme
