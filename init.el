@@ -79,6 +79,7 @@
 (use-package magit
   :config
   (global-set-key (kbd "C-x m") 'magit-status)
+  (global-set-key (kbd "M-a") 'magit-blame-addition)
   (define-key magit-hunk-section-map (kbd "RET") 'magit-diff-visit-file-other-window))
 
 ;;; org mode - override org-mode default to favor general window switching
