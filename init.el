@@ -103,6 +103,11 @@
   (setq whitespace-style `(face trailing tabs))
   (global-whitespace-mode 1))
 
+;;; Markdown
+(custom-set-variables
+ '(markdown-command "/usr/bin/pandoc"))
+(setq markdown-css-paths '("/home/hirogwa/style.css"))
+
 ;;; Python
 (defun insert-pdb-set-trace ()
   "Insert pdb."
@@ -112,10 +117,14 @@
   :config
   (define-key python-mode-map (kbd "C-x p") 'insert-pdb-set-trace))
 
-;;; TypeScript
+;;; Styles
 (use-package prettier-js
   :config
-  (add-hook 'typescript-mode-hook 'prettier-js-mode))
+  (add-hook 'typescript-mode-hook 'prettier-js-mode)
+;  (add-hook 'js-mode-hook 'prettier-js-mode)
+)
+
+;;; TypeScript
 (use-package typescript-mode
   :config
   (add-to-list 'auto-mode-alist '("\\.tsx?\\'" . typescript-mode))
@@ -153,10 +162,15 @@
 (use-package lsp-treemacs :commands lsp-treemacs-errors-list)
 
 ;;; treemacs
+(defun find-in-window ()
+  "Do treemacs-find-file followed by treemacs-select-window."
+  (interactive)
+  (treemacs-find-file)
+  (treemacs-select-window))
 (use-package treemacs
   :config
   (global-set-key (kbd "C-c t") 'treemacs)
-  (global-set-key (kbd "C-c f") 'treemacs-find-file)
+  (global-set-key (kbd "C-c f") 'find-in-window)
   (treemacs-follow-mode -1)
   (treemacs))
 
@@ -172,3 +186,6 @@
     "Switch to my selected light theme."
     (interactive)
     (load-theme 'sanityinc-tomorrow-day t)))
+
+;;; https://github.com/facebook/create-react-app/issues/9056
+(setq create-lockfiles nil)
