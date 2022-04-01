@@ -23,7 +23,7 @@
 (menu-bar-mode 0)
 (tool-bar-mode 0)
 (global-set-key (kbd "s-r") 'revert-buffer)
-(set-face-attribute 'default nil :height 100)
+(set-face-attribute 'default nil :height 120)
 (global-linum-mode t)
 (column-number-mode t)
 
@@ -92,7 +92,12 @@
   (define-key org-mode-map (kbd "<S-up>") nil)
   (define-key org-mode-map (kbd "<S-down>") nil)
   (define-key org-mode-map (kbd "<S-left>") nil)
-  (define-key org-mode-map (kbd "<S-right>") nil))
+  (define-key org-mode-map (kbd "<S-right>") nil)
+  (define-key org-mode-map (kbd "C-c a") 'org-agenda))
+(setq org-log-done t)
+(setq org-adapt-indentation nil)
+(setq org-src-tab-acts-natively nil)
+(setq org-agenda-files '("~/days/agenda"))
 
 ;;; whitespaces
 (setq-default indent-tabs-mode nil)
@@ -103,11 +108,6 @@
   (setq whitespace-style `(face trailing tabs))
   (global-whitespace-mode 1))
 
-;;; Markdown
-(custom-set-variables
- '(markdown-command "/usr/bin/pandoc"))
-(setq markdown-css-paths '("/home/hirogwa/style.css"))
-
 ;;; Python
 (defun insert-pdb-set-trace ()
   "Insert pdb."
@@ -117,14 +117,16 @@
   :config
   (define-key python-mode-map (kbd "C-x p") 'insert-pdb-set-trace))
 
-;;; Styles
-(use-package prettier-js
+;;; Ruby
+(use-package enh-ruby-mode
   :config
-  (add-hook 'typescript-mode-hook 'prettier-js-mode)
-;  (add-hook 'js-mode-hook 'prettier-js-mode)
-)
+  (add-to-list 'auto-mode-alist
+               '("\\(?:\\.rb\\|ru\\|rake\\|thor\\|jbuilder\\|gemspec\\|podspec\\|/\\(?:Gem\\|Rake\\|Cap\\|Thor\\|Vagrant\\|Guard\\|Pod\\)file\\)\\'" . enh-ruby-mode)))
 
 ;;; TypeScript
+(use-package prettier-js
+  :config
+  (add-hook 'typescript-mode-hook 'prettier-js-mode))
 (use-package typescript-mode
   :config
   (add-to-list 'auto-mode-alist '("\\.tsx?\\'" . typescript-mode))
@@ -162,15 +164,10 @@
 (use-package lsp-treemacs :commands lsp-treemacs-errors-list)
 
 ;;; treemacs
-(defun find-in-window ()
-  "Do treemacs-find-file followed by treemacs-select-window."
-  (interactive)
-  (treemacs-find-file)
-  (treemacs-select-window))
 (use-package treemacs
   :config
   (global-set-key (kbd "C-c t") 'treemacs)
-  (global-set-key (kbd "C-c f") 'find-in-window)
+  (global-set-key (kbd "C-c f") 'treemacs-find-file)
   (treemacs-follow-mode -1)
   (treemacs))
 
@@ -186,6 +183,3 @@
     "Switch to my selected light theme."
     (interactive)
     (load-theme 'sanityinc-tomorrow-day t)))
-
-;;; https://github.com/facebook/create-react-app/issues/9056
-(setq create-lockfiles nil)
